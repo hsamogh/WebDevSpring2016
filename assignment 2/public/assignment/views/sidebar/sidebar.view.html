@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+    <script src="config.js"></script>
+    <script src="sidebar.controller.js"></script>
+    <title>Title</title>
+</head>
+<body ng-controller="SideBarController">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active btn"><a href="#/home"  class="btn" ng-class="{'btn-primary' : $location.url() == '/home'}" >HOME <span class="sr-only">(current)</span></a></li>
+                <li><a href="#/profile" ng-show="user" class="btn" ng-class="{'btn-primary' : $location.url() == '/profile'}">PROFILE</a></li>
+                <li><a href="#/admin"  ng-show="user && user.roles.indexOf('admin')>=0"  class="btn" ng-class="{'btn-primary' : $location.url() == '/admin'}">ADMIN</a></li>
+                <li><a href="#/forms" ng-show="user"  class="btn" ng-class="{'btn-primary' : $location.url() == '/forms'}">FORMS</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
