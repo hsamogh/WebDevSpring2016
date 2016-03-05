@@ -17,7 +17,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../views/home/home.css" rel="stylesheet">
+    <link href="views/home/home.css" rel="stylesheet">
 
 </head>
 
@@ -54,30 +54,30 @@
             <form>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="text" class="form-control" ng-model="u.username" id="username" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" class="form-control" ng-model="u.username" id="password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="text" class="form-control" ng-model="u.fname" id="fname" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="username">Last Name</label>
-                    <input type="text" class="form-control" id="lname" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="text" class="form-control" ng-model="u.lname" id="lname" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="email" class="form-control" ng-model="u.email" id="email" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
 
                 <br/>
-                <button type="submit" class="btn btn-default" style="width: 35%; height: 60%"><b>Update</b></button>
+                <button type="submit" class="btn btn-default" ng-click="update(u)" style="width: 35%; height: 60%"><b>Update</b></button>
             </form>
 
         </div>

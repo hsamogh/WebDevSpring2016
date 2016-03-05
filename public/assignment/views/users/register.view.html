@@ -15,28 +15,13 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Custom styles for this template -->
-    <link href="../views/home/home.css" rel="stylesheet">
+    <link href="views/home/home.css" rel="stylesheet">
+
 
 </head>
 
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>FORM MAKER</b></a>
-        </div>
-
-    </div>
-</nav>
+<body ng-controller="RegisterController">
 
 <div class="container-fluid">
     <div class="row">
@@ -47,26 +32,26 @@
 
             <form>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
+                    <label  for="username">Username</label>
+                    <input ng-model="u.username" type="text" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" ng-model="u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="verify password">Verify Password</label>
-                    <input type="password" class="form-control" id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" ng-model="u.vpassword" class="form-control" id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="email" class="form-control" ng-model="u.email" id="email" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
 
                 <br/>
-                <button type="submit" class="btn btn-default" style="width: 35%; height: 60%"><b>Register</b></button>
+                <button type="submit" ng-click="register(u)" class="btn btn-default" style="width: 35%; height: 60%"><b>Register</b></button>
             </form>
 
         </div>

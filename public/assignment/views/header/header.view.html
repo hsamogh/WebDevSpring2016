@@ -3,7 +3,7 @@
 <head>
 
 </head>
-<body>
+<body ng-controller="HeaderController">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -17,10 +17,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../users/register.view.html">Register</a></li>
-                <li><a href="#">UserName</a></li>
-                <li><a href="../users/login.view.html">Login</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#/register" class="btn" ng-class="{'btn-primary' : $location.url() == '#/register'}">Register</a></li>
+                <li><a href="#/username " class="btn" ng-class="{'btn-primary' : $location.url() == '/username'}">UserName</a></li>
+                <li><a href="#/login" class="btn" ng-class="{'btn-primary' : $location.url() == '/login'}">Login</a></li>
+                <li><a href="#/logout" class="btn" ng-class="{'btn-primary' : $location.url() == '/logout'}">Logout</a></li>
             </ul>
         </div>
     </div>
