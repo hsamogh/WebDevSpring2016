@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body ng-controller="HeaderController">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><b>FORM MAKER</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/register" class="btn" ng-class="{'btn-primary' : $location.url() == '#/register'}">Register</a></li>
+                <li><a href="#/username " class="btn" ng-class="{'btn-primary' : $location.url() == '/username'}">UserName</a></li>
+                <li><a href="#/login" class="btn" ng-class="{'btn-primary' : $location.url() == '/login'}">Login</a></li>
+                <li><a href="#/logout" class="btn" ng-class="{'btn-primary' : $location.url() == '/logout'}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
