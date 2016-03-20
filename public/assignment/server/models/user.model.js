@@ -57,9 +57,9 @@ module.exports=function(){
         }
     }
 
-    function findUserByCredentials(username,password){
+    function findUserByCredentials(user){
         for(var i in f){
-            if(f[i].username==username && f[i].password==password){
+            if(f[i].username==user.username && f[i].password==user.password){
                 return f[i];
             }
         }

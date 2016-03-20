@@ -39,24 +39,17 @@
             $location.url("/fields/"+formId);
         }
 
-        function updateForm() {
-            vm.newForm.title = vm.formName;
-            FormService
-                .updateFormById(
-                    formObject.newForm._id,
-                    formObject.newForm
-                )
-                .then(function(response){
-                    console.log(response);
-                    formObject.formName = "";
-                    FormService
-                        .findAllFormsForUser(userId)
-                        .then(function(response){
-                            console.log(response);
-                            formObject.myForms = response.data;
-                            formObject.newForm = null;
-                        });
-                });
+        function updateForm(formName) {
+            if(formObjectb.index != -1 && formName != null){
+
+            var selectedForm = formObject.myForms[formObject.index];
+            console.log(selectedForm);
+            selectedForm.title = formName;
+
+            FormService.updateFormById(selectedForm._id, selectedForm)
+            }else{
+                console.log("Nothing ")
+            }
         }
 
         function deleteForm(formId) {
@@ -73,9 +66,10 @@
                 });
         }
 
-        function selectForm(form) {
-            formObject.formName = form.title;
-            formObject.newForm = form;
+        function selectForm(index) {
+            formObject.formName = formObject.forms[index].title;
+            formObject.newForm = formObject.forms[index];
+            formObject.index=index;
         }
 
         function addForm(fname) {

@@ -1,15 +1,22 @@
 /**
  * Created by Amogh on 3/18/2016.
  */
+
+// /api/assignment/user?username=alice&password=alice
 module.exports = function(app, userModel) {
+    app.get("/api/hello",HelloUser)
     app.post("/api/assignment/user", createUser);
-    //app.get('/api/assignment/user', getUserByCredentials);
+    app.get("/api/assignment/user?username=:username&password=:password", getUserByCredentials);
     app.get("/api/assignment/user", findAllUsers);
     app.get("/api/assignment/user/:id", getUserById);
-    app.get("/api/assignment/user?username=:username", getUserByUname);
+    app.get("/api/assignment/user", getUserByUname);
     app.put("/api/assignment/user/:id", updateUserById);
     app.delete("/api/assignment/user/:id", delUser);
 
+    function HelloUser(req,res){
+        console.log("HELLO");
+        res.send("<h1> HELLO </h1>");
+    }
     function createUser(req, res) {
         var user = req.body;
         var userList = userModel.createNewUser(user);
@@ -21,7 +28,7 @@ module.exports = function(app, userModel) {
         if (req.query.username && req.query.password) {
             return getUserByCredentials(req, res);
         } else if (req.query.username) {
-            return findUserByUsername(req, res);
+            return getUserByUname(req, res);
         } else {
             return findAllUsers(req, res);
         }
@@ -38,12 +45,13 @@ module.exports = function(app, userModel) {
 
     function getUserByUname(req, res) {
         var username = req.query.username;
+        console.log("Username"+username);
         var user = userModel.findUserByUsername(username);
         res.json(user);
     }
 
     function getUserByCredentials(req, res) {
-        console.log("hello in func auth");
+
         var credentials = {
             username: req.query.username,
             password: req.query.password

@@ -10,15 +10,35 @@
 
         function update(u)
         {
+            var m = this;
+
+            function init() {
+                // Initialization statements
+                if (UserService.getCurrentUser()) {
+                    var currUser = UserService.getCurrentUser();
+                    m.userId = currUser._id;
+                    m.username = currUser.username;
+                    m.password = currUser.password;
+                    m.firstName = currUser.firstName;
+                    m.lastName = currUser.lastName;
+                    m.userEmail = currUser.email;
+                } else {
+                    $location.path("#/home");
+                }
+            }
+            init();
+
+
+
             UserService
                 .updateUser(
-                    this.userId,
+                   m.userId,
                     {
-                        "username": u.username,
-                        "firstName": u.firstName,
-                        "lastName": u.lastName,
-                        "password": u.password,
-                        "email": u.email
+                        "username": m.username,
+                        "firstName": m.firstName,
+                        "lastName": m.lastName,
+                        "password": m.password,
+                        "email": m.email
                     }
                 )
                 .then(function(response){

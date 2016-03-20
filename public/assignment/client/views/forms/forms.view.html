@@ -65,17 +65,17 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><input ng-model="model.fname" class="form-control" type="text" placeholder="name"></td>
+                    <td><input ng-model="m.f.fname" class="form-control" type="text" placeholder="name"></td>
                     <td>
-                        <a ng-click="addForm(model.fname)"><span class="glyphicon glyphicon-plus"></span></a>&emsp;
-                        <a ng-click="updateForm()"><span class="glyphicon glyphicon-ok"></span></a>
+                        <a ng-click="m.addForm(m.f.fname)"><span class="glyphicon glyphicon-plus"></span></a>&emsp;
+                        <a ng-click="m.updateForm(m.f.fname)"><span class="glyphicon glyphicon-ok"></span></a>
                     </td>
                 </tr>
-                <tr ng-repeat="form in f">
-                    <td>{{title}}</td>
+                <tr ng-repeat="form in m.f">
+                    <td  ng-click="m.goToFields(form._id)">{{title}}</td>
                     <td>
-                        <a ng-click="deleteForm($form)"><span class="glyphicon glyphicon-remove"></span></a>&emsp;
-                        <a ng-click="selectForm($form)"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a ng-click="deleteForm($index)"><span class="glyphicon glyphicon-remove"></span></a>&emsp;
+                        <a ng-click="selectForm($index)"><span class="glyphicon glyphicon-pencil"></span></a>
                     </td>
                 </tr>
                 </tbody>

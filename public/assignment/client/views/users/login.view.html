@@ -56,14 +56,14 @@
             <form>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" ng-model="u.username" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="text" ng-model="m.u.username" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" ng-model="u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" ng-model="m.u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
                 <br/>
-                <button type="submit" ng-click="login(u)"  class="btn btn-default" style="width: 35%; height: 60%"><b>Login</b></button>
+                <button type="submit" ng-click="m.login(m.u)"  class="btn btn-default" style="width: 35%; height: 60%"><b>Login</b></button>
             </form>
 
         </div>

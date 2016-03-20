@@ -21,6 +21,7 @@
 
         }
         function findAllUsers(){
+            console.log("/api/assignment/user");
             return $http.get("/api/assignment/user");
         }
 
@@ -30,27 +31,32 @@
 
         function deleteUserById(userId)
         {
+            console.log("/api/assignment/user/" + userId);
             return $http.delete("/api/assignment/user/" + userId);
 
         }
 
 
         function createUser (user) {
+            console.log("/api/assignment/user"+user);
             return $http.post("/api/assignment/user", user);
         }
 
 
 
         function findUserByCredentials(username,password) {
+            console.log("/api/assignment/user?username=" + username + "&password=" + password);
             return $http.get("/api/assignment/user?username=" + username + "&password=" + password);
         }
 
         function findUserByUsername (username) {
+            console.log("/api/assignment/user?username=" + username);
                 return $http.get("/api/assignment/user?username=" + username);
 
         }
 
         function updateUser (userid,currentUser) {
+            console.log("/api/assignment/user/" + userid+currentUser);
             return $http.put("/api/assignment/user/" + userid, currentUser);}
     }
 })();

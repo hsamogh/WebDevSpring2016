@@ -1,26 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>REGISTRATION</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="views/home/home.css" rel="stylesheet">
-
-
-</head>
-
 <body ng-controller="RegisterController">
 
 <div class="container-fluid">
@@ -33,25 +11,25 @@
             <form>
                 <div class="form-group">
                     <label  for="username">Username</label>
-                    <input ng-model="u.username" type="text" class="form-control" id="username" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input ng-model="m.u.username" type="text" class="form-control" id="username" placeholder="Username" style="width: 35%; padding: 2px">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" ng-model="u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" ng-model="m.u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="verify password">Verify Password</label>
-                    <input type="password" ng-model="u.vpassword" class="form-control" id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
+                    <input type="password" ng-model="m.u.vpassword" class="form-control" id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" ng-model="u.email" id="email" placeholder="Email" style="width: 35%; padding: 2px">
+                    <input type="email" class="form-control" ng-model="m.u.email" id="email" placeholder="Email" style="width: 35%; padding: 2px">
                 </div>
 
                 <br/>
-                <button type="submit" ng-click="register(u)" class="btn btn-default" style="width: 35%; height: 60%"><b>Register</b></button>
+                <button type="submit" ng-click="m.register(m.u)" class="btn btn-default" style="width: 35%; height: 60%"><b>Register</b></button>
             </form>
 
         </div>

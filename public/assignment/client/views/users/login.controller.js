@@ -2,29 +2,36 @@
     angular.module("FormMakerApp")
         .controller("LoginController",LoginController);
 
-    function LoginController($scope,$location,UserService,$rootScope){
-        $scope.location=$location;
-        $scope.login=login;
+    function LoginController(UserService, $location, $scope) {
 
 
+        var vm = this;
+        vm.login = login;
+        function init(){
 
+        }
+        init();
+        function login(user) {
 
-        function login (user) {
-            function alert()
-            {
+            UserService
+                .findUserByCredentials(user.username,user.password)
+                .then(function (response) {
+                    if(response.data != null){
+                        UserService.setCurrentUser(response.data);
+                        $location.path('/profile');
+                    }
 
-            }
+                    else {
+                        vm.password = null;
+                        $scope.message = "Invalid Credentials";
+                    }
+                });
 
-
-            var user = UserService.findUserByCredentials(user.username, user.password);
-            if (user) {
-                console.log(user);
-                $rootScope.currentUser = user; // you set the user to the rootScope here
-                UserService.setCurrentUser(user); // you set it again?
-                $location.url("/profile");
-            }
         }
 
+
+
     }
+
 
 })();
