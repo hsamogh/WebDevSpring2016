@@ -4,7 +4,7 @@
     angular
         .module("FormMakerApp")
 
-        .controller("SideBarController",function($scope){
-            $scope.location=location.url();
+        .controller("SideBarController",function($scope,$location){
+            $scope.$location=$location;
         })
         })();
