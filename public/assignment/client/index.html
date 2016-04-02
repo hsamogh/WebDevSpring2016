@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <link href="views/home/home.css" rel="stylesheet">
     <title>Form Maker</title>
 </head>
 <body ng-controller="MainController">
@@ -13,7 +13,9 @@
     <br/>
     <div ng-include="'views/sidebar/sidebar.view.html'"> </div>
 
-    <div ng-view></div>
+    <div ng-view>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
@@ -32,7 +34,7 @@
     <script src="views/header/headerController.js"></script>
     <script src="views/forms/forms.controller.js"></script>
     <script src="views/forms/fields.controller.js"></script>
-    <script src="views/forms/admin.controller.js"></script>
+    <script src="views/admin/AdminController.js"></script>
 
 </body>
 </html>

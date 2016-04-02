@@ -16,6 +16,9 @@
 
 
         function createFormForUser (userId,form) {
+            console.log("In create form client service");
+            console.log(userId);
+            console.log(form);
             return $http.post("/api/assignment/user/" + userId + "/form", form);
         }
 
@@ -26,17 +29,11 @@
 
         }
 
-
-
-
         function findAllFormsForUser(userId)
         {
+          console.log("You are in findAllForms service client");
             return $http.get("/api/assignment/user/" + userId + "/form");
         }
-
-
-
-
 
         function findFormById (username) {
             return $http.get("/api/assignment/user/" + username + "/form");

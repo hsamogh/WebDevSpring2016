@@ -36,7 +36,12 @@
             })
             .when("/fields", {
                 templateUrl: "/assignment/client/views/forms/form-fields.view.html",
-                controller: "FieldsController",
+                controller: "FieldController",
+                controllerAs: "model"
+            })
+            .when("/form/:formId/fields", {
+                templateUrl: "/assignment/client/views/forms/form-fields.view.html",
+                controller: "FieldController",
                 controllerAs: "model"
             })
             .otherwise({

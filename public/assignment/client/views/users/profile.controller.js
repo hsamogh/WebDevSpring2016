@@ -43,8 +43,11 @@
                 )
                 .then(function(response){
                     console.log(response);
+                    alert("Updated");
                     UserService.setCurrentUser(response);
                 });
+
+
         }
 
         function alert()

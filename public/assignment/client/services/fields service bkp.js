@@ -1,3 +1,6 @@
+/**
+ * Created by Amogh on 3/27/2016.
+ */
 (function () {
     "use strict";
 
@@ -7,37 +10,32 @@
 
     function fieldService($http) {
         var api = {
-            createFieldForForm: createFieldForForm,
-            getFieldsForForm: getFieldsForForm,
-            getFieldForForm: getFieldForForm,
-            deleteFieldForm: deleteFieldFromForm,
-            updateField: updateField,
-            getAllFieldTypes: getAllFieldTypes
+            getFieldsForm: getFieldsForm,
+            deleteFieldForm: deleteFieldForm,
+            createFieldForm: createFieldForm,
+            getFieldForm: getFieldForm,
+            updateField: updateField
         };
         return api;
 
-        function createFieldForForm(formId, field) {
+        function createFieldForm(formId, field) {
             return $http.post("/api/assignment/form/" + formId + "/field", field);
         }
 
-        function getFieldsForForm(formId) {
+        function getFieldsForm(formId) {
             return $http.get("/api/assignment/form/" + formId + "/field");
         }
 
-        function getFieldForForm(formId, fieldId) {
+        function getFieldForm(formId, fieldId) {
             return $http.get("/api/assignment/form/" + formId + "/field/" + fieldId);
         }
 
-        function deleteFieldFromForm(formId, fieldId) {
+        function deleteFieldForm(formId, fieldId) {
             return $http.delete("/api/assignment/form/" + formId + "/field/" + fieldId);
         }
 
         function updateField(formId, fieldId, field) {
             return $http.put("/api/assignment/form/" + formId + "/field/" + fieldId, field);
-        }
-
-        function getAllFieldTypes() {
-            return $http.get("/api/assignment/form/fieldTypes");
         }
     }
 })();

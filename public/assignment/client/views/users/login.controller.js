@@ -14,7 +14,7 @@
         function login(user) {
 
             UserService
-                .findUserByCredentials(user.username,user.password)
+                .findUserByCredentials(user)
                 .then(function (response) {
                     if(response.data != null){
                         UserService.setCurrentUser(response.data);

@@ -25,16 +25,21 @@
                     "lastname":null,
                     "username":user.username,
                     "password":user.password,
+                    "email":user.email,
                     "roles": []
                 };
+                UserService.createUser(newUser)
+                    .then(function(response){
+
+                        UserService.setCurrentUser(newUser);
+                        $location.path('/profile');
+                    });
+            }else{
+                alert("passwords do not match");
             }
 
-            UserService.createUser(newUser)
-                .then(function(response){
 
-                    UserService.setCurrentUser(newUser);
-                    $location.path('/profile');
-                });
+
         }
     }
 })();

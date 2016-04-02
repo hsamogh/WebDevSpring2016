@@ -4,7 +4,7 @@
         .factory("UserService", UserService);
 
     function UserService($http,$rootScope) {
-        var model = {
+        var api = {
 
             createUser: createUser,
             findUserByCredentials: findUserByCredentials,
@@ -14,7 +14,7 @@
             getCurrentUser: getCurrentUser,
             deleteUserById: deleteUserById
         };
-        return model;
+        return api;
 
         function setCurrentUser (user) {
             $rootScope.currentUser = user;
@@ -26,7 +26,10 @@
         }
 
         function getCurrentUser () {
-            return $rootScope.currentUser;
+            //return $http.get("/api/assignment/loggedin");
+            console.log("In user service");
+            console.log($rootScope.currentUser[0]);
+            return $rootScope.currentUser[0];
         }
 
         function deleteUserById(userId)
@@ -38,15 +41,16 @@
 
 
         function createUser (user) {
-            console.log("/api/assignment/user"+user);
+            console.log("Client User Service");
+           console.log(user);
             return $http.post("/api/assignment/user", user);
         }
 
 
 
-        function findUserByCredentials(username,password) {
+        function findUserByCredentials(user) {
             console.log("/api/assignment/user?username=" + username + "&password=" + password);
-            return $http.get("/api/assignment/user?username=" + username + "&password=" + password);
+            return $http.get("/api/assignment/user",user);
         }
 
         function findUserByUsername (username) {

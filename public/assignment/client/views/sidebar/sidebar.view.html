@@ -15,15 +15,36 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
+
                 <li ng-class="{'active' : $location.url()=='/home'}">
-                    <a href="#/home"  class="btn btn-primary" ng-class="{'active' : $location.url() == '/home'}" >HOME <span class="sr-only">(current)</span></a>
+                    <a href="#/home"  class="btn" ng-class="{'active' : $location.url() == '/home'}" >
+                       <b> HOME </b><span class="sr-only">(current)</span>
+                    </a>
                 </li>
-                <li><a href="#/profile" ng-show="currentUser" class="btn" ng-class="{'btn-primary' : $location.url() == '/profile'}">PROFILE</a></li>
-                <li><a href="#/admin"  ng-show="currentUser && user.roles.indexOf('admin')>=0"  class="btn" ng-class="{'btn-primary' : $location.url() == '/admin'}">ADMIN</a></li>
-                <li><a href="#/forms" ng-show="currentUser"  class="btn" ng-class="{'btn-primary' : $location.url() == '/forms'}">FORMS</a></li>
+
+                <li>
+                    <a href="#/profile" ng-show="currentUser"
+                       class="btn" ng-class="{'active' : $location.url() == '/profile'}">
+                        <b> PROFILE </b>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#/admin"  ng-show="currentUser && user.roles.indexOf('admin')>=0"
+                           class="btn" ng-class="{'active' : $location.url() == '/admin'}">
+                        <b>ADMIN</b>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#/forms" ng-show="currentUser"
+                       class="btn" ng-class="{'active' : $location.url() == '/forms' || $location.url() == '/fields' }">
+                    <b>FORMS</b>
+                    </a>
+                </li>
+
             </ul>
         </div>
-
     </div>
 </div>
 </body>

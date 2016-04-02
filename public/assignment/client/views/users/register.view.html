@@ -1,40 +1,60 @@
 
 <body ng-controller="RegisterController">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-0 col-sm-offset-0 col-md-0 col-md-offset-2 main">
-            <h1 class="page-header">REGISTRATION</h1>
-        </div>
-        <div class="col-sm-0 col-sm-offset-0 col-md-0 col-md-offset-2 main">
+    <link href="views/home/home.css" rel="stylesheet">
 
-            <form>
-                <div class="form-group">
-                    <label  for="username">Username</label>
-                    <input ng-model="m.u.username" type="text" class="form-control" id="username" placeholder="Username" style="width: 35%; padding: 2px">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" ng-model="m.u.password" class="form-control" id="password" placeholder="Password" style="width: 35%; padding: 2px">
-                </div>
+    <div class="container-fluid">
+        <div class="row">
 
-                <div class="form-group">
-                    <label for="verify password">Verify Password</label>
-                    <input type="password" ng-model="m.u.vpassword" class="form-control" id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
-                </div>
+            <div class="col-sm-0 col-sm-offset-0 col-md-0 col-md-offset-2 main">
+                <h1 class="page-header">REGISTRATION</h1>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" ng-model="m.u.email" id="email" placeholder="Email" style="width: 35%; padding: 2px">
-                </div>
+            <div class="col-sm-0 col-sm-offset-0 col-md-0 col-md-offset-2 main">
 
-                <br/>
-                <button type="submit" ng-click="m.register(m.u)" class="btn btn-default" style="width: 35%; height: 60%"><b>Register</b></button>
-            </form>
+                <!-- Form for registration-->
+                <form>
 
+                    <!-- Username label and field-->
+                    <div class="form-group">
+
+                        <label  for="username">Username</label>
+                        <input ng-model="model.user.username" type="text" class="form-control"
+                               id="username" placeholder="Username" style="width: 35%; padding: 2px">
+                    </div>
+
+                    <!-- Password label and field-->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" ng-model="model.user.password" class="form-control"
+                               id="password" placeholder="Password" style="width: 35%; padding: 2px">
+                    </div>
+
+                    <!--  Verify Password Label and field -->
+                    <div class="form-group">
+                        <label for="verify password">Verify Password</label>
+                        <input type="password" ng-model="model.user.vpassword" class="form-control"
+                            id="verify password" placeholder="Password" style="width: 35%; padding: 2px">
+                    </div>
+
+                    <!-- Email label and field -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" ng-model="model.user.email"
+                            id="email" placeholder="Email" style="width: 35%; padding: 2px">
+                    </div>
+
+                    <!-- Submit Button to Register a user -->
+                    <br/>
+                    <button type="submit" ng-click="model.register(model.user)" class="btn btn-default" style="width: 35%; height: 60%">
+                        <b>Register</b>
+                    </button>
+
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

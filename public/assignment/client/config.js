@@ -21,7 +21,7 @@
                 .when("/register", {
                     templateUrl:"views/users/register.view.html",
                     controller: "RegisterController",
-                    controllerAs: "m"
+                    controllerAs: "model"
 
                 })
                 .when("/login", {
@@ -33,7 +33,7 @@
                 .when("/forms", {
                     templateUrl: "views/forms/forms.view.html",
                     controller: "FormController",
-                    controllerAs: "m"
+                    controllerAs: "model"
 
                 })
                 .when("/profile", {

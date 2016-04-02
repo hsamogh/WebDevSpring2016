@@ -63,8 +63,8 @@
         }
 
         function addField(fieldType) {
-            console.log(fieldType);
-            var newField = {};
+            console.log("You are in new Field");
+            var newField = {}
             if (fieldType == "TEXT") {
                 newField._id = null;
                 newField.label = "New-Text-Field";
@@ -100,7 +100,7 @@
             }
 
             FieldService
-                .createFieldForForm(formId, newField)
+                .createFieldForm(formId, newField)
                 .then(function(response){
                     console.log(response.data);
                     fieldObject.feilds = response.data.fields;

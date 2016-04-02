@@ -9,10 +9,16 @@ module.exports = function(app, formModel) {
     app.post("/api/assignment/user/:userId/form", createForm);
     app.put("/api/assignment/form/:formId", updateFormById);
 
-    function getAllForms(request, response) {
-        var userId = request.params.userId;
-        var forms = formModel.findAllFormsForUser(userId);
-        response.json(forms);
+    function getAllForms(req, res) {
+        formModel.findFormsForUser(req.params.userId)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function getFormById(request, response) {
@@ -22,9 +28,14 @@ module.exports = function(app, formModel) {
     }
 
     function createForm(req, res) {
+        console.log("In create form");
+
         var userId = req.params.userId;
+        console.log(userId);
+
         var form = req.body;
-        var newForm = formModel.createFormForUser(userId, form);
+        console.log(form);
+        var newForm = formModel.createForm(userId, form);
         res.json(newForm);
     }
 
@@ -40,4 +51,4 @@ module.exports = function(app, formModel) {
         var updatedList = formModel.deleteForm(formId);
         response.json(updatedList);
     }
-}
+};
