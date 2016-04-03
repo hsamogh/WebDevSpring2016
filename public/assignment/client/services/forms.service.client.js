@@ -31,7 +31,7 @@
 
         function findAllFormsForUser(userId)
         {
-          console.log("You are in findAllForms service client");
+          //console.log("You are in findAllForms service client");
             return $http.get("/api/assignment/user/" + userId + "/form");
         }
 

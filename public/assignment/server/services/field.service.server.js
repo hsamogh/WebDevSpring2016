@@ -1,39 +1,79 @@
-/**
- * Created by Amogh on 3/18/2016.
- */
 module.exports = function(app, formModel) {
     app.get("/api/assignment/form/:formId/field", getAllFormFieldsByFormId);
+    app.get("/api/assignment/form/fieldTypes", getAllFieldTypes);
     app.get("/api/assignment/form/:formId/field/:fieldId", getFormFieldById);
-    app.delete("/api/assignment/form/:formId/field/:fieldId", deleteFormFldById);
-    app.post("/api/assignment/form/:formId/field", cloneFormField);
     app.put("/api/assignment/form/:formId/field/:fieldId", updateFormFieldById);
+    app.delete("/api/assignment/form/:formId/field/:fieldId", deleteFormFieldById);
+    app.post("/api/assignment/form/:formId/field", createFormField);
+
+    function createFormField(req, res) {
+        var formId = req.params.formId;
+        var field = req.body;
+        var newform = formModel.createFormField(formId, field)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
+
+    function getAllFieldTypes(req, res) {
+        var fields = formModel.getAllFieldTypes()
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
 
     function getAllFormFieldsByFormId(req, res) {
         var formId = req.params.formId;
-        var formFieldList = formModel.findAllFieldsById(formId);
-        res.json(formFieldList);
+        var fieldList = formModel.findAllFormFieldsByFormId(formId)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function getFormFieldById(req, res) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        var formField = formModel.findFormFieldById(formId, fieldId);
-        res.json(formField);
+        var field = formModel.findFormFieldById(formId, fieldId)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
-    function deleteFormFldById(req, res) {
+    function deleteFormFieldById(req, res) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        var formFieldList = formModel.deleteFormFieldById(formId, fieldId);
-        res.json(formFieldList);
+        var fieldList = formModel.deleteFormFieldById(formId, fieldId)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
-    function cloneFormField(req, res) {
-        var formId = req.params.formId;
-        var field = req.body;
-        var newFormField = formModel.createFormField(formId, field);
-        res.json(newFormField);
-    }
+
 
     function updateFormFieldById(req, res) {
         var formId = req.params.formId;
@@ -41,7 +81,17 @@ module.exports = function(app, formModel) {
         var field = req.body;
 
         // use model to find user by id
-        var formFields = formModel.updateFormField(formId, fieldId, field);
-        res.json(formFields);
+        var fields = formModel.updateFormFieldById(formId, fieldId, field)
+            .then(
+                function (doc) {
+
+                    res.json(doc);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
+
+
 };

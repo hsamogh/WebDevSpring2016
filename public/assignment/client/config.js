@@ -36,6 +36,11 @@
                     controllerAs: "model"
 
                 })
+                .when("/fields/:formId", {
+                    templateUrl: "views/forms/fields.view.html",
+                    controller: "FieldController",
+                    controllerAs: "m"
+                })
                 .when("/profile", {
                     templateUrl: "views/users/profile.view.html",
                     controller: "profileController"

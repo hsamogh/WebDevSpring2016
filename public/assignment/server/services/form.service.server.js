@@ -13,6 +13,7 @@ module.exports = function(app, formModel) {
         formModel.findFormsForUser(req.params.userId)
             .then(
                 function (doc) {
+                   // console.log(doc);
                     res.json(doc);
                 },
                 function ( err ) {
@@ -21,6 +22,7 @@ module.exports = function(app, formModel) {
             );
     }
 
+    //
     function getFormById(request, response) {
         var formId = request.params.formId;
         var form = formModel.findFormById(formId);

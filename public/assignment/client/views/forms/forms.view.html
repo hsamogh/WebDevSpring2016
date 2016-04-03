@@ -74,7 +74,7 @@
 
                         <tr ng-repeat="form in model.myforms" ng-class="{'success': form==model.newForm}">
                             <td data-title="Form Name">
-                                <a href="#/form/{{form._id}}/fields">{{form.title}}</a>
+                                <a href ng-click="model.moveToFields()">{{form.title}}</a>
                             </td>
                             <td data-title="Action">
                                 <div class="btn-group" role="group">

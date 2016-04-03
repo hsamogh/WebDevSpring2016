@@ -111,9 +111,6 @@ module.exports = function(db, mongoose) {
         var k;
        FormModel.find({ userId : userId},
             function (err, doc) {
-               console.log(doc);
-
-                return doc;
                 if (err) {
                     console.log("Failing in service model form");
                     deferred.reject(err);

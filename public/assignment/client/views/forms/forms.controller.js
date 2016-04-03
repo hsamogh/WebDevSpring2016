@@ -13,7 +13,7 @@
         function init() {
             if (UserService.getCurrentUser()) {
                 console.log("Authenticated");
-                formObject.loadFormFields = loadFormFields;
+                formObject.moveToFields = moveToFields;
                 formObject.addForm = addForm;
                 formObject.selectForm = selectForm;
                 formObject.updateForm = updateForm;
@@ -21,7 +21,7 @@
 
                 userId = UserService.getCurrentUser()._id;
 
-                console.log(userId);
+                //console.log(userId);
                 FormService
                     .findAllFormsForUser(userId)
                     .then(function(response){
@@ -37,9 +37,9 @@
 
         init();
 
-        function loadFormFields(formId) {
-            console.log("/fields/"+formId);
-            $location.url("#/fields/"+formId);
+        function moveToFields() {
+            console.log("/fields/"+userId);
+            $location.url("#/fields/"+userId);
         }
 
         function updateForm() {
