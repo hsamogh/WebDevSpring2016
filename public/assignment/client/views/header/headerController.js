@@ -1,14 +1,28 @@
+"use strict";
 (function(){
-    angular.module("FormMakerApp",["ng-route"])
-        .controller("HeaderController",function($scope,$location){
+    angular
+        .module("FormMakerApp")
+        .controller("HeaderController", HeaderController);
 
-            $scope.$location = $location;
-            $scope.logout = logout;
-        })
+    function HeaderController($location, UserService, $rootScope){
+        var vm = this;
 
-    function logout() {
-        UserService.setCurrentUser(null,$scope,$location);
-        $location.url("/home");
+        function init() {
+            vm.$location = $location;
+        }
+        init();
+
+
+        vm.logout = logout;
+
+        function logout() {
+
+            UserService
+                .logout()
+                .then(function(user){
+                    $location.url("/home");
+                });
+        }
+
     }
-
-});
+})();

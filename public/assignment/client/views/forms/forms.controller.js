@@ -5,23 +5,23 @@
         .module("FormMakerApp")
         .controller("FormController", formController);
 
-    function formController($location, FormService, UserService) {
+    function formController($location, FormService, UserService,$rootScope) {
         var formObject = this;
-        var userId = null;
+        var userId = $rootScope.user._id;
 
 
         function init() {
             if (UserService.getCurrentUser()) {
-                console.log("Authenticated");
+                console.log("Authenticated in form service");
                 formObject.moveToFields = moveToFields;
                 formObject.addForm = addForm;
                 formObject.selectForm = selectForm;
                 formObject.updateForm = updateForm;
                 formObject.deleteForm = deleteForm;
+                //console.log(UserService.getCurrentUser());
+                //userId = UserService.getCurrentUser()._id;
 
-                userId = UserService.getCurrentUser()._id;
 
-                //console.log(userId);
                 FormService
                     .findAllFormsForUser(userId)
                     .then(function(response){
@@ -73,7 +73,7 @@
                         .findAllFormsForUser(userId)
                         .then(function(response){
                             console.log(response);
-                            formObject.myForms = response.data;
+                            formObject.myforms = response.data;
                         });
                 });
         }
@@ -84,6 +84,9 @@
         }
 
         function addForm(fname) {
+            if(fname==" " || fname==""){
+                fname="default";
+            }
             FormService
                 .createFormForUser(
                     userId,
@@ -97,7 +100,7 @@
                         .then(function(response){
                           //  console.log(response);
                             formObject.formName = "";
-                            formObject.myForms = response.data;
+                            formObject.myforms = response.data;
                         });
                 });
         }

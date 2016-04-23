@@ -9,7 +9,7 @@ module.exports = function(app, formModel) {
     function createFormField(req, res) {
         var formId = req.params.formId;
         var field = req.body;
-        var newform = formModel.createFormField(formId, field)
+        var newform = formModel.createFieldForForm(formId, field)
             .then(
                 function (doc) {
                     res.json(doc);

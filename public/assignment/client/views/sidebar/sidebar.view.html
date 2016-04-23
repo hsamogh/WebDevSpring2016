@@ -23,21 +23,21 @@
                 </li>
 
                 <li>
-                    <a href="#/profile" ng-show="currentUser"
+                    <a href="#/profile" ng-show="user"
                        class="btn" ng-class="{'active' : $location.url() == '/profile'}">
                         <b> PROFILE </b>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#/admin"  ng-show="currentUser && user.roles.indexOf('admin')>=0"
+                    <a href="#/admin"  ng-show="user && user.roles.indexOf('admin')>=0"
                            class="btn" ng-class="{'active' : $location.url() == '/admin'}">
                         <b>ADMIN</b>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#/forms" ng-show="currentUser"
+                    <a href="#/forms" ng-show="user"
                        class="btn" ng-class="{'active' : $location.url() == '/forms' || $location.url() == '/fields' }">
                     <b>FORMS</b>
                     </a>

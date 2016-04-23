@@ -4,14 +4,14 @@
         .module("FormMakerApp")
         .controller("FieldController", FieldController);
 
-    function FieldController($routeParams, UserService, FieldService, $location) {
+    function FieldController($routeParams, UserService, FieldService, $location,$rootScope) {
         var fieldObject = this;
         var formId = $routeParams.formId;
 
         function init() {
             console.log("Welcome to field Controller");
             if (UserService.getCurrentUser()) {
-                var currUser = UserService.getCurrentUser();
+                var currUser =$rootScope.user;
                 fieldObject.userId = currUser._id;
                 fieldObject.username = currUser.username;
                 fieldObject.password = currUser.password;
